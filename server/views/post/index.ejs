@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+	<div class="main_container">
+	  <div class="page_content">
+    	<div class="page_head"><h2 class="page_header">Latest News</h2><hr class="scotch-rule"></div>
+			<% posts.forEach(function(post){ %>
+			  <div class="blog_container">
+			    <p class="blog_header"><strong><%=post.title%></strong></p><hr>
+			    <img src="<%= post.image_url %>">
+			    <div><img style="max-width: 100%; height: auto; margin-top: 20px;" src="<%= post.image %>"> </div>
+			    <p class="blog_sub_head"><span><small><b>Posted by Admin</b></small></span><span><small><b><%= moment(post.created_at).fromNow() %></b></small></span></p>
+			    <p class=""><%= post.description.substr(2,100) %></p>
+			    <a class="blog_details" href="/posts/<%= post.id %>"><strong>Read more &hellip;</strong></a>
+			  </div>
+			<% }); %>
+	  </div>
+	</div>
+<% include ../partials/footer %>
